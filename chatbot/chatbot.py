@@ -21,7 +21,7 @@ def call_groq_api(messages: list[dict[str, str]]) -> str:
 
   response = completion(
     messages=messages,
-    api_key=st.secrets["GROQ"],
+    api_key=st.secrets["GROQ_API_KEY"],
     **config['llm']['parameters'],
     **tools
   )
@@ -52,7 +52,7 @@ def call_groq_api(messages: list[dict[str, str]]) -> str:
     # Tools are not called here to prevent the LLM talking to itself
     informed_response = completion(
         messages=messages,
-        api_key=st.secrets["GROQ"],
+        api_key=st.secrets["GROQ_API_KEY"],
         **config['llm']['parameters']
     )
 
