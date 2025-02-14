@@ -3,11 +3,6 @@ project:
   description: Chatbot application for geological and related information in brazilian portuguese.
   version: 0.1
 
-api_keys:
-  groq: ${GROQ_API_KEY} 
-  pinecone: ${PINECONE_API_KEY}
-  weather: ${WEATHER_API_KEY}
-
 llm:
   parameters:
     max_completion_tokens: 3000
