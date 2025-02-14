@@ -1,0 +1,26 @@
+project:
+  name: geoscience-chatbot
+  description: Chatbot application for geological and related information in brazilian portuguese.
+  version: 0.1
+
+api_keys:
+  groq: ${GROQ_API_KEY} 
+  pinecone: ${PINECONE_API_KEY}
+  weather: ${WEATHER_API_KEY}
+
+llm:
+  parameters:
+    max_completion_tokens: 3000
+    model: groq/llama3-70b-8192
+    n: 1
+    temperature: 0.2
+  system_prompt:
+    role: system
+    content: >-
+      Você é um especialista em geociências e está auxiliando
+      outros especialistas. Você deve responder apenas perguntas
+      relacionadas às geociências ou meteorologia.
+      Forneça respostas objetivas e concisas e minimize a redundância.
+      A não ser que seja explicitamente requisitado,
+      evite explicações longas de conceitos e termos técnicos,
+      bem como entrar em tangentes e detalhes excessivos.

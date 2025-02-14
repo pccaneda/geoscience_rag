@@ -1,0 +1,50 @@
+tool_choice: 'auto'
+
+tools:
+  - type: function
+    function:
+      name: weather_forecast
+      description: Retorna a previsão do tempo em uma cidade
+      parameters:
+        type: object
+        properties:
+          city:
+            type: string
+            description: Nome da cidade
+          country:
+            type: string
+            description: Sigla do país
+        required:
+          - city
+          - country
+
+  - type: function
+    function:
+      name: solar_storm_check
+      description: Verifica se há uma tempestade solar em andamento
+      parameters:
+        type: object
+        properties: {}
+        required: []
+
+  - type: function
+    function:
+      name: seismic_events
+      description: Obtém dados sísmicos da USGS
+      parameters:
+        type: object
+        properties: {}
+        required: []
+
+  - type: function
+    function:
+      name: geology_info
+      description: Consulta informações sobre geologia na Pinecone
+      parameters:
+        type: object
+        properties:
+          query:
+            type: string
+            description: Texto consultado
+        required:
+          - query
