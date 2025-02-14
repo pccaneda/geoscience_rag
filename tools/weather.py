@@ -1,6 +1,7 @@
 import requests
 from utils.parse_weather import parse_weather
 from config.core import config
+import streamlit as st
 
 
 def weather_forecast(city: str, country: str) -> str:
@@ -21,7 +22,7 @@ def weather_forecast(city: str, country: str) -> str:
   """
 
   # Call to OpenWeatherMap API
-  url = f'http://api.openweathermap.org/data/2.5/weather?q={city},{country}&APPID={config["api_keys"]["weather"]}&lang=pt_br&units=metric'
+  url = f'http://api.openweathermap.org/data/2.5/weather?q={city},{country}&APPID={st.secrets["WEATHER_API_KEY"]}&lang=pt_br&units=metric'
   response = requests.get(url)
 
   # Returns processed json response

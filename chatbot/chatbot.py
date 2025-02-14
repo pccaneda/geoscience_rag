@@ -2,6 +2,7 @@ from litellm import completion
 import json
 from utils.tool_handler import tool_handler
 from config.core import config, tools
+import streamlit as st
 
 
 def call_groq_api(messages: list[dict[str, str]]) -> str:
@@ -20,7 +21,7 @@ def call_groq_api(messages: list[dict[str, str]]) -> str:
 
   response = completion(
     messages=messages,
-    api_key=config['api_keys']['groq'],
+    api_key=st.secrets["GROQ"],
     **config['llm']['parameters'],
     **tools
   )
@@ -51,7 +52,7 @@ def call_groq_api(messages: list[dict[str, str]]) -> str:
     # Tools are not called here to prevent the LLM talking to itself
     informed_response = completion(
         messages=messages,
-        api_key=config['api_keys']['groq'],
+        api_key=st.secrets["GROQ"],
         **config['llm']['parameters']
     )
 

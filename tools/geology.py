@@ -1,8 +1,9 @@
 from config.core import config
 from pinecone import Pinecone
+import streamlit as st
 
 
-pc = Pinecone(api_key=config['api_keys']['pinecone'])
+pc = Pinecone(st.secrets["PINECONE_API_KEY"])
 index = pc.Index('geologia')
 
 def geology_info(query: str) -> str:
